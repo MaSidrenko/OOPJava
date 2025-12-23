@@ -59,10 +59,7 @@ public class App {
         Map<Integer, List<User>> ageWithName = users.stream().collect(Collectors.groupingBy(User::age, Collectors.toList()));
         ageWithName.entrySet().stream().max(Comparator.comparingInt(entry -> entry.getValue().size())).ifPresent(maxEntry -> {
             System.out.println("Age group with most users: " + maxEntry.getKey());
-            System.out.println("Users in this age group: " + maxEntry.getValue().stream()
-                    .map(User::name)
-                    .collect(Collectors.toList())
-            );
+            System.out.println("Users in this age group: " + maxEntry.getValue());
         }
         );
     }
